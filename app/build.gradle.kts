@@ -41,11 +41,11 @@ android {
 
 dependencies {
 
-    implementation("androidx.navigation:navigation-compose-android:2.7.7")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.8-rc02")
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-    implementation("androidx.datastore:datastore-preferences:1.1.0")
+    implementation("androidx.navigation:navigation-compose:2.9.5")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.4")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.4")
+
+    implementation("androidx.datastore:datastore-preferences:1.1.7")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

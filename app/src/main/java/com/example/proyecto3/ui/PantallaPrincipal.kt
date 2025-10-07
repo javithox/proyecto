@@ -19,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -42,14 +43,14 @@ fun PantallaPrincipal(modifier: Modifier= Modifier, viewModel: EstadoViewModel= 
         }
 
     }else{
-        val estadActivo =estado.value!!
+        val estadoActivo =estado.value!!
         val colorAnimado by animateColorAsState(
-            targetValue = if (estadActivo) Color(0xff4caf50) else Color(0xffb0bec5),
+            targetValue = if (estadoActivo) Color(0xff4caf50) else Color(0xffb0bec5),
             animationSpec = tween(durationMillis = 500), label = ""
         )
 
-        val textoBoton by remember(estadActivo) {
-            derivedStateOf { if (estadActivo) "Desactivar" else "Activar" }
+        val textoBoton by remember(estadoActivo) {
+            derivedStateOf { if (estadoActivo) "Desactivar" else "Activar" }
         }
 
         Column(

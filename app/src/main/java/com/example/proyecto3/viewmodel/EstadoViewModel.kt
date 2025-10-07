@@ -1,9 +1,9 @@
 package com.example.proyecto3.viewmodel
 
+import EstadoDataStore
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.proyecto3.models.EstadoDataStore
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,7 +16,7 @@ class EstadoViewModel(application: Application): AndroidViewModel(application) {
     private val estadoDataStore = EstadoDataStore(application)
     // Estado que representa si esta "activado" o no (observable)
     private val _activo= MutableStateFlow<Boolean?>(null)
-    val activo: StateFlow<Boolean?>=_activo
+    val activo: StateFlow<Boolean?> = _activo
     //Estado para mostrar u ocultar el mensaje animado
 
     private val _mostrarMensaje= MutableStateFlow(false)
@@ -30,7 +30,7 @@ class EstadoViewModel(application: Application): AndroidViewModel(application) {
     fun cargarEstado(){
         viewModelScope.launch {
             delay(1500)
-            _activo.value=estadoDataStore.obtenerEstado().first()?:false
+            _activo.value=estadoDataStore.obtenerResultado().first()?:false
         }
     }
     fun alternarEstado(){
