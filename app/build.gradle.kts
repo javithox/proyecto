@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("kotlin-kapt")
 }
 
 android {
@@ -40,10 +41,29 @@ android {
 }
 
 dependencies {
+    val roomVersion = "2.6.1"
+    val lifecycleVersion = "2.8.6"
+    val activityCompose = "1.9.3"
+    val navCompose = "2.8.3"
 
-    implementation("androidx.navigation:navigation-compose:2.9.5")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.4")
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.4")
+    implementation(platform("androidx.compose:compose-bom:2024.10.00"))
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    debugImplementation("androidx.compose.ui:ui-tooling")
+
+    //ROOM SQLite
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+
+    implementation("androidx.activity:activity-compose:${activityCompose}")
+    implementation("androidx.navigation:navigation-compose:${navCompose}")
+// Lifecycle / MVVM
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycleVersion}")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:${lifecycleVersion}")
+    //COROUTINES
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
 
     implementation("androidx.datastore:datastore-preferences:1.1.7")
     implementation(libs.androidx.core.ktx)
@@ -58,6 +78,9 @@ dependencies {
     implementation(libs.androidx.compose.foundation.layout.android)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.ui)
+    implementation(libs.androidx.room.common.jvm)
+    implementation(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

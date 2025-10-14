@@ -26,10 +26,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.proyecto3.viewmodel.EstadoViewModel
+import com.example.proyecto3.viewmodel.ExpenseViewModelFactory
 
 @Composable
-fun PantallaPrincipal(modifier: Modifier= Modifier, viewModel: EstadoViewModel= viewModel()) {
+fun PantallaPrincipal(modifier: Modifier= Modifier, viewModel: ExpenseViewModelFactory= viewModel()) {
     //usa el modifier en el contenedor principal
     val estado=viewModel.activo.collectAsState()
     val mostrarMensaje =viewModel.mostrarMensaje.collectAsState()
