@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.proyecto3.viewmodel.ExpenseViewModelFactory
 
+
 @Composable
 fun PantallaPrincipal(modifier: Modifier= Modifier, viewModel: ExpenseViewModelFactory= viewModel()) {
     //usa el modifier en el contenedor principal
